@@ -13,32 +13,32 @@ export type Payment = {
 
 export const columns: ColumnDef<Payment>[] = [
     {
-        accessorKey: "amount",
-        header: () => <div className="text-left">Amount</div>,
-        cell: ({ row }) => {
+        accessorKey: "date",
+        header: () => <div className="text-left">Дата</div>,
 
-            const amount = parseFloat(row.getValue("amount"))
+        // cell: ({ row }) => {
 
-            const formatted = new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-            }).format(amount)
+        //     const amount = parseFloat(row.getValue("amount"))
 
-            return <div className="text-left font-medium">{formatted}</div>
-        },
+        //     const formatted = new Intl.NumberFormat("en-US", {
+        //         style: "currency",
+        //         currency: "USD",
+        //     }).format(amount)
+
+        //     return <div className="text-left font-medium">{formatted}</div>
+        // },
     },
     {
-        accessorKey: "email",
-        header: "Email",
+        accessorKey: "place",
+        header: "Наименование участка работ",
     },
     {
-        accessorKey: "actions",
-        header: "actions",
-        cell: ({ row }) => {
-
-            return (
-                <span>{row.original.id}</span>
-            )
-        }
+        accessorKey: "description",
+        header: "Содержание указания",
+        // cell: ({ row }) => {
+        //     return (
+        //         <span>{row.original.id}</span>
+        //     )
+        // }
     },
 ]

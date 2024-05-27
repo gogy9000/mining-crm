@@ -36,7 +36,6 @@ export default function RootLayout({
         >
           <AppBar />
           <NavBar
-
             outsideContent={children}
           />
 

@@ -28,7 +28,7 @@ export function NavBar({ outsideContent }: Props) {
     }, [])
     return (
         <div
-            className={cn("pl-2 flex-1 items-start grid grid-cols-1  sm:gap-6 sm:grid-cols-[240px_minmax(0,1fr)] gap-10 transition-all",
+            className={cn(" pl-2 flex-1 items-start grid grid-cols-1  sm:gap-6 sm:grid-cols-[240px_minmax(0,1fr)] gap-10 transition-all",
                 colapse && "sm:grid-cols-[50px_minmax(0,1fr)]"
             )}>
             <div className="border-r border-border/90 mt-3 flex-col gap-3 fixed top-16 z-30 hidden h-[calc(100vh-3.5rem)] w-full sm:sticky sm:flex">

@@ -22,11 +22,13 @@ import { Button } from "../ui/button"
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
+    onClickRow?: (original: TData) => void
 }
 
 export function DataTable<TData, TValue>({
     columns,
     data,
+    onClickRow
 }: DataTableProps<TData, TValue>) {
 
     const table = useReactTable({
@@ -64,6 +66,7 @@ export function DataTable<TData, TValue>({
                                 <TableRow
                                     key={row.id}
                                     data-state={row.getIsSelected() && "selected"}
+                                    onClick={() => onClickRow && onClickRow(row.original)}
                                 >
                                     {row.getVisibleCells().map((cell) => (
                                         <TableCell key={cell.id}>

@@ -1,92 +1,91 @@
-
-import { AppBar } from "@/components/app-bar";
+'use client'
 import { Payment, columns } from "@/components/table/columns";
 import { DataTable } from "@/components/table/data-table";
-import { ThemeToggler } from "@/components/theme-toggler";
-async function getData(): Promise<Payment[]> {
-  // Fetch data from your API here.
+import { useRouter } from "next/navigation";
 
+function getData(): Payment[] {
+  // Fetch data from your API here.
   return [
     {
       id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      date: "22.05.2024",
+      place: "Сопряжение ЗН-154",
+      description: "Сверхнормативные отклонения",
     },
     {
       id: "728edssd52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      date: "22.05.2024",
+      place: "Сопряжение ЗН-154",
+      description: "Сверхнормативные отклонения",
     },
     {
       id: "728eklkld52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      date: "22.05.2024",
+      place: "Сопряжение ЗН-154",
+      description: "Сверхнормативные отклонения",
     },
     {
       id: "72asdasd8ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      date: "22.05.2024",
+      place: "Сопряжение ЗН-154",
+      description: "Сверхнормативные отклонения",
     },
     {
       id: "728edasdasdasd52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      date: "22.05.2024",
+      place: "Сопряжение ЗН-154",
+      description: "Сверхнормативные отклонения",
     },
     {
       id: "728edhjkghjssd52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      date: "22.05.2024",
+      place: "Сопряжение ЗН-154",
+      description: "Сверхнормативные отклонения",
     },
     {
       id: "728eklkl5464645d52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      date: "22.05.2024",
+      place: "Сопряжение ЗН-154",
+      description: "Сверхнормативные отклонения",
     },
     {
       id: "72asdasxzczxcvcxzd8ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      date: "22.05.2024",
+      place: "Сопряжение ЗН-154",
+      description: "Сверхнормативные отклонения",
     }, {
       id: "728edpo[op[52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      date: "22.05.2024",
+      place: "Сопряжение ЗН-154",
+      description: "Сверхнормативные отклонения",
     },
     {
       id: "728edssdqweqeq52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      date: "22.05.2024",
+      place: "Сопряжение ЗН-154",
+      description: "Сверхнормативные отклонения",
     },
     {
       id: "728eklkltb tbtd52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      date: "22.05.2024",
+      place: "Сопряжение ЗН-154",
+      description: "Сверхнормативные отклонения",
     },
     {
       id: "72asdasdolo8ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+      date: "22.05.2024",
+      place: "Сопряжение ЗН-154",
+      description: "Сверхнормативные отклонения",
     },
   ]
 }
-export default async function Home() {
-  const data = await getData()
+export default function Home() {
+  const { push } = useRouter()
+  const data = getData()
+
   return (
-    <main className="flex min-h-screen flex-col items-center">
-      <div className="container overflow-auto">
-        <DataTable columns={columns} data={data} />
-      </div>
+    <main className="pr-3 pt-3 min-h-screen">
+      <DataTable columns={columns} data={data} onClickRow={(original) => { push(original.id) }} />
     </main>
   );
 }
